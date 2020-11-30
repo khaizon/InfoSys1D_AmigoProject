@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.SearchView;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -29,6 +30,7 @@ public class DiscoverFragment extends Fragment {
     private String mParam2;
     private Button seeAllButton;
     RecyclerView recyclerView;
+    private SearchView searchView;
     public DiscoverFragment() {
         // Required empty public constructor
     }
@@ -79,6 +81,13 @@ public class DiscoverFragment extends Fragment {
         MyAdapter myAdapter = new MyAdapter(s1,s2);
         recyclerView.setAdapter(myAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
+        searchView = view.findViewById(R.id.searchBarHome);
+        searchView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
         return view;
     }
 }

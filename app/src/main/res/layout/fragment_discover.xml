@@ -33,6 +33,7 @@
         </RelativeLayout>
 
         <SearchView
+            android:id="@+id/searchBarHome"
             android:layout_width="match_parent"
             android:layout_height="35dp"
             android:layout_marginLeft="15dp"
