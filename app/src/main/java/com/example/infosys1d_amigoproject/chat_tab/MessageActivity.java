@@ -157,7 +157,7 @@ public class MessageActivity extends AppCompatActivity {
                     icon_on.setVisibility(View.GONE);
                 }
 
-                ReadMessages(fuser.getUid(), getID, user.getProfile_picture());
+                ReadMessages(fuser.getUid(), getID, user.getProfile_picture(),FirebaseDatabase.getInstance().getReference("users_display").child(fuser.getUid()).child("profile_picture");
             }
 
             @Override
@@ -186,7 +186,7 @@ public class MessageActivity extends AppCompatActivity {
     }
 
 
-    private void ReadMessages(final String myid, final String userid, final String imgurl){
+    private void ReadMessages(final String myid, final String userid, final String imgurl_left){
         mChat = new ArrayList<>();
 
         mref = FirebaseDatabase.getInstance().getReference("Chats");
@@ -201,7 +201,7 @@ public class MessageActivity extends AppCompatActivity {
                         mChat.add(chat);
                     }
                 }
-                messageAdapter = new messageAdapter(mcontext, mChat, imgurl);
+                messageAdapter = new messageAdapter(mcontext, mChat, imgurl_left);
                 pastmessages.setAdapter(messageAdapter);
                 pastmessages.scrollToPosition(messageAdapter.getItemCount()-1);
 
