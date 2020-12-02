@@ -89,8 +89,19 @@ public class myprojectstabFragment extends Fragment {
 
         DatabaseReference projref = databaseReference.child("Projects");
         ArrayList<Project> projectList = new ArrayList<>();
+<<<<<<< HEAD
 
 
+=======
+        myAdapter = new MyAdapter(projectList);
+        createproject = view.findViewById(R.id.create_project);
+        createproject.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(v.getContext(),CreateNewProject.class));
+            }
+        });
+>>>>>>> parent of 37b9199... changed myprojectspage
 
         projref.addValueEventListener(new ValueEventListener() {
             @Override

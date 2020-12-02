@@ -81,33 +81,36 @@ public class MyProjectsFragment extends Fragment {
         mFirebasedatabase = FirebaseDatabase.getInstance();
         myRef = mFirebasedatabase.getReference("users_display").child(fuser.getUid());
 
-        tabLayout = view.findViewById(R.id.tablayoutprojects);
-        viewPager = view.findViewById(R.id.viewpagerchatprojects);
+        tabLayout = view.findViewById(R.id.tablayout);
+        viewPager = view.findViewById(R.id.viewpagerchat);
 
 
-        ViewPagerAdapter2 viewPagerAdapter2 = new ViewPagerAdapter2(getChildFragmentManager());
+        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getChildFragmentManager());
 
 
         tabLayout.setupWithViewPager(viewPager);
 
-        viewPagerAdapter2.addFragment(new myprojectstabFragment(), "My Projects");
-        viewPagerAdapter2.addFragment(new appliedprojectsFragment(), "Applied Projects");
-        viewPager.setAdapter(viewPagerAdapter2);
+        viewPagerAdapter.addFragment(new ActiveChatsFragment(), "My Projects");
+        viewPagerAdapter.addFragment(new ChatsUsersFragment(), "Applied Projects");
+        viewPager.setAdapter(viewPagerAdapter);
 
         return view;
     }
 
 
-    class ViewPagerAdapter2 extends FragmentPagerAdapter {
+    class ViewPagerAdapter extends FragmentPagerAdapter {
 
         private ArrayList<Fragment> fragments;
         private ArrayList<String> titles;
 
-        public ViewPagerAdapter2(FragmentManager fm) {
+        public ViewPagerAdapter(FragmentManager fm) {
             super(fm);
             this.fragments = new ArrayList<>();
             this.titles = new ArrayList<>();
         }
+
+
+
 
 
         @NonNull
