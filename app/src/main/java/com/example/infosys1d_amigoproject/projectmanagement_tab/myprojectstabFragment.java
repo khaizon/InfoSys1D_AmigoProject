@@ -89,7 +89,7 @@ public class myprojectstabFragment extends Fragment {
 
         DatabaseReference projref = databaseReference.child("Projects");
         ArrayList<Project> projectList = new ArrayList<>();
-        myAdapter = new MyAdapter(projectList);
+
 
 
         projref.addValueEventListener(new ValueEventListener() {
@@ -105,8 +105,10 @@ public class myprojectstabFragment extends Fragment {
                         }
                     }
                 }
+                myAdapter = new MyAdapter(projectList);
+
                 myAdapter.notifyDataSetChanged();
-                System.out.println(projectList.toString());
+
                 recyclerView.setAdapter(myAdapter);
             }
 
