@@ -46,7 +46,7 @@ public class ProfileSetupProfilePic extends AppCompatActivity {
     ImageView profilepic;
     private static final String TAG = "ProfileSetupAboutMe";
     TextInputLayout aboutme;
-    Button nextbutton, prevbutton;
+    Button nextbutton, prevbutton, skipbutton;
     Button upload_from_gallery;
     Uri imageUri, downloadUrl;
     String randomKey;
@@ -68,7 +68,7 @@ public class ProfileSetupProfilePic extends AppCompatActivity {
         aboutme = findViewById(R.id.aboutme);
         nextbutton = findViewById(R.id.nextbuttonaboutme);
         prevbutton = findViewById(R.id.prevbuttonaboutme);
-
+        skipbutton = findViewById(R.id.skipsetupbuttonprofilepic);
         firebaseMethods = new FirebaseMethods(ProfileSetupProfilePic.this);
         storageRef = FirebaseStorage.getInstance().getReference();
         firebaseReference = FirebaseDatabase.getInstance().getReference();
