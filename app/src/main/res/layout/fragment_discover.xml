@@ -71,6 +71,8 @@
                     android:layout_height="wrap_content"
                     android:background="@android:color/transparent"
                     android:text="Learn"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
                     app:layout_constraintEnd_toEndOf="@+id/projecticon1"
                     app:layout_constraintStart_toStartOf="@+id/projecticon1"
                     app:layout_constraintTop_toBottomOf="@+id/projecticon1" />
@@ -91,6 +93,8 @@
                     android:layout_height="wrap_content"
                     android:background="@android:color/transparent"
                     android:text="Hardware"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
                     app:layout_constraintEnd_toEndOf="@+id/projecticon2"
                     app:layout_constraintStart_toStartOf="@+id/projecticon2"
                     app:layout_constraintTop_toBottomOf="@+id/projecticon2" />
@@ -111,6 +115,8 @@
                     android:layout_height="wrap_content"
                     android:background="@android:color/transparent"
                     android:text="Software"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
                     app:layout_constraintEnd_toEndOf="@+id/projecticon3"
                     app:layout_constraintStart_toStartOf="@+id/projecticon3"
                     app:layout_constraintTop_toBottomOf="@+id/projecticon3" />
@@ -130,7 +136,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@android:color/transparent"
-                    android:text="Start Up"
+                    android:text="Start-Up"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/projecticon4"
                     app:layout_constraintTop_toBottomOf="@+id/projecticon4" />

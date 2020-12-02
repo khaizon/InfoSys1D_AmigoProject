@@ -48,6 +48,7 @@ public class CreateNewProject extends AppCompatActivity {
     StorageReference storageRef;
     TextInputLayout textInputLayout,textInputLayoutdescrip;
     String randomKey;
+    String category;
     ArrayList<String> skills;
     DatabaseReference myref = FirebaseDatabase.getInstance().getReference();
 
@@ -57,6 +58,7 @@ public class CreateNewProject extends AppCompatActivity {
 
     private Context mcontext;
     private ChipGroup mfilters;
+    private ChipGroup categoryChipGroup;
     private ArrayList<String> selectedChipData;
 
     @Override
@@ -71,8 +73,6 @@ public class CreateNewProject extends AppCompatActivity {
         firebaseMethods = new FirebaseMethods(getApplicationContext());
         storage = FirebaseStorage.getInstance();
         storageRef = storage.getReference();
-
-
         selectedChipData = new ArrayList<>();
 
 
@@ -91,10 +91,17 @@ public class CreateNewProject extends AppCompatActivity {
                         selectedChipData.add(chip.getText().toString());
                     }
                 }
+                categoryChipGroup.getCheckedChipIds();
+                    for(int i = 0; i<categoryChipGroup.getChildCount(); i++){
+                        Chip chip = (Chip)categoryChipGroup.getChildAt(i);
+                        if(chip.isChecked()){
+                            category = chip.getText().toString();
+                        }
+                    }
                 String projectKey = myref.child("Projects").push().getKey();
                 Project new_proj = new Project(downloadUrl.toString(), textInputLayout.getEditText().getText().toString(),
                         textInputLayoutdescrip.getEditText().getText().toString(),
-                        selectedChipData, new ArrayList<String>(Arrays.asList(firebaseMethods.getUserID())),
+                        selectedChipData, new ArrayList<String>(Arrays.asList(firebaseMethods.getUserID())), category,
                         firebaseMethods.getUserID(), projectKey);
 
                 myref.child("Projects").child(projectKey).setValue(new_proj);
@@ -127,8 +134,15 @@ public class CreateNewProject extends AppCompatActivity {
             newChip.setText(text);
             mfilters.addView(newChip);}
 
+        String[] projectCategories = mcontext.getResources().getStringArray(R.array.category_list);
 
-
+        categoryChipGroup = findViewById(R.id.categoryChipGroup);
+        LayoutInflater inflater_1 = LayoutInflater.from(mcontext);
+        for(String text: projectCategories){
+            Chip newChip = (Chip) inflater_1.inflate(R.layout.chip_choice,null,false);
+            System.out.println("category asdf" + text);
+            newChip.setText(text);
+            mfilters.addView(newChip);}
     }
 
     @Override
