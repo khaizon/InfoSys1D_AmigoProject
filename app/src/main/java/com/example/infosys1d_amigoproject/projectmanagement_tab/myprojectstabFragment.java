@@ -96,6 +96,7 @@ public class myprojectstabFragment extends Fragment {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
                 projectList.clear();
+                System.out.println("123456987");
                 for (DataSnapshot postSnapshot: snapshot.getChildren()) {
                     Project project = postSnapshot.getValue(Project.class);
                     for (String userID: project.getUsersinProject()){
