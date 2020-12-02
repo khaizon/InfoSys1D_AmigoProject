@@ -92,21 +92,6 @@ public class MainActivity extends AppCompatActivity {
                     .commit();
         }
 
-        myref.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                user = firebaseMethod.getUserData(snapshot);
-                if(!user.getUsersdisplay().isCompeletedsetup()){
-                    System.out.println(user.getUsersdisplay().isCompeletedsetup()+"92383312");
-                    startActivity(new Intent(MainActivity.this, ProfileSetupAboutMe.class));
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
 
         menu_bottom.setOnItemSelectedListener(new ChipNavigationBar.OnItemSelectedListener() {
             @Override
@@ -204,7 +189,18 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                user = firebaseMethod.getUserData(snapshot);
 
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
     }
 
