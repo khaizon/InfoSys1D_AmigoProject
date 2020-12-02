@@ -51,6 +51,12 @@ public class DiscoverFragment extends Fragment {
     DatabaseReference databaseReference;
     DatabaseReference dbProjects;
     public List<Project> projectsList;
+
+    private Button learnButton;
+    private Button softwareButton;
+    private Button hardwareButton;
+    private Button startupButton;
+
     public DiscoverFragment() {
         // Required empty public constructor
     }
@@ -103,6 +109,40 @@ public class DiscoverFragment extends Fragment {
 
             }
         });
+
+        learnButton = view.findViewById(R.id.projecticon1);
+        learnButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), ExploreProjectListings.class);
+                intent.putExtra("category", learnButton.getText().toString());
+            }
+        });
+        hardwareButton = view.findViewById(R.id.projecticon2);
+        hardwareButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), ExploreProjectListings.class);
+                intent.putExtra("category", hardwareButton.getText().toString());
+            }
+        });
+        softwareButton = view.findViewById(R.id.projecticon3);
+        softwareButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), ExploreProjectListings.class);
+                intent.putExtra("category", softwareButton.getText().toString());
+            }
+        });
+        startupButton = view.findViewById(R.id.projecticon4);
+        startupButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), ExploreProjectListings.class);
+                intent.putExtra("category", softwareButton.getText().toString());
+            }
+        });
+
         databaseReference = FirebaseDatabase.getInstance().getReference();
         DatabaseReference projref = databaseReference.child("Projects");
         projectsList = new ArrayList<>();

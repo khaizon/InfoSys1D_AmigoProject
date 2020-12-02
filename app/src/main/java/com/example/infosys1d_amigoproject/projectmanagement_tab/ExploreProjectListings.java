@@ -19,6 +19,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -64,9 +65,19 @@ public class ExploreProjectListings extends AppCompatActivity {
 //                new ArrayList<String>(Arrays.asList("3Qyanm1Rl6WgR0eB4v8oUFULth72",firebaseMethods.getUserID())),
 //                firebaseMethods.getUserID());
 
-        //code for database query of projects
-        dbProjects = FirebaseDatabase.getInstance().getReference("Projects");
-        dbProjects.addListenerForSingleValueEvent(valueEventListener);
+        // Get the intent, verify the action and get the query
+        intent = getIntent();
+        if (!Intent.ACTION_SEARCH.equals(intent.getAction())) {
+            String category_filter = intent.getStringExtra("category");
+            Query query = FirebaseDatabase.getInstance().getReference("Projects").orderByChild("category").equalTo(category_filter);
+            query.addListenerForSingleValueEvent(valueEventListener);
+
+        }
+        else {
+            //code for database query of projects
+            dbProjects = FirebaseDatabase.getInstance().getReference("Projects");
+            dbProjects.addListenerForSingleValueEvent(valueEventListener);
+        }
         System.out.println("helloooooooooooo"+projectsList.toString());
 
         //this block of code is for the recycler view
@@ -82,8 +93,7 @@ public class ExploreProjectListings extends AppCompatActivity {
                 startActivity(new Intent(view.getContext(),CreateNewProject.class));
             }
         });
-        // Get the intent, verify the action and get the query
-        intent = getIntent();
+
 //        if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
 //            String skills_filter = intent.getStringExtra("skills_filter");
 //            String text_filter = intent.getStringExtra("text_filter");
