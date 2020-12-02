@@ -90,6 +90,10 @@ public class myprojectstabFragment extends Fragment {
         DatabaseReference projref = databaseReference.child("Projects");
         ArrayList<Project> projectList = new ArrayList<>();
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7b8f836acb5d392e9e4fc9ffd24cc7af3ed498f5
 
 =======
 <<<<<<< HEAD
@@ -97,6 +101,14 @@ public class myprojectstabFragment extends Fragment {
 
 =======
 >>>>>>> parent of 190dde3... 77
+<<<<<<< HEAD
+=======
+
+
+=======
+>>>>>>> parent of 190dde3... 77
+=======
+>>>>>>> 7b8f836acb5d392e9e4fc9ffd24cc7af3ed498f5
         myAdapter = new MyAdapter(projectList);
         createproject = view.findViewById(R.id.create_project);
         createproject.setOnClickListener(new View.OnClickListener() {
@@ -111,7 +123,6 @@ public class myprojectstabFragment extends Fragment {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
                 projectList.clear();
-                System.out.println("123456987");
                 for (DataSnapshot postSnapshot: snapshot.getChildren()) {
                     Project project = postSnapshot.getValue(Project.class);
                     for (String userID: project.getUsersinProject()){
