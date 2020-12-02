@@ -89,13 +89,7 @@ public class myprojectstabFragment extends Fragment {
 
         DatabaseReference projref = databaseReference.child("Projects");
         ArrayList<Project> projectList = new ArrayList<>();
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-
-=======
-=======
->>>>>>> parent of 37b9199... changed myprojectspage
         myAdapter = new MyAdapter(projectList);
         createproject = view.findViewById(R.id.create_project);
         createproject.setOnClickListener(new View.OnClickListener() {
