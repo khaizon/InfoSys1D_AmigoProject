@@ -48,7 +48,6 @@ public class CreateNewProject extends AppCompatActivity {
     StorageReference storageRef;
     TextInputLayout textInputLayout,textInputLayoutdescrip;
     String randomKey;
-    String category;
     ArrayList<String> skills;
     DatabaseReference myref = FirebaseDatabase.getInstance().getReference();
 
@@ -59,6 +58,7 @@ public class CreateNewProject extends AppCompatActivity {
     private Context mcontext;
     private ChipGroup mfilters;
     private ChipGroup categoryChipGroup;
+    private ArrayList<String> category;
     private ArrayList<String> selectedChipData;
 
     @Override
@@ -74,6 +74,7 @@ public class CreateNewProject extends AppCompatActivity {
         storage = FirebaseStorage.getInstance();
         storageRef = storage.getReference();
         selectedChipData = new ArrayList<>();
+        category = new ArrayList<>();
 
 
         create_project.setOnClickListener(new View.OnClickListener() {
@@ -91,11 +92,11 @@ public class CreateNewProject extends AppCompatActivity {
                         selectedChipData.add(chip.getText().toString());
                     }
                 }
-                categoryChipGroup.getCheckedChipIds();
+                category.clear();
                     for(int i = 0; i<categoryChipGroup.getChildCount(); i++){
                         Chip chip = (Chip)categoryChipGroup.getChildAt(i);
                         if(chip.isChecked()){
-                            category = chip.getText().toString();
+                            category.add(chip.getText().toString());
                         }
                     }
                 String projectKey = myref.child("Projects").push().getKey();
@@ -142,7 +143,7 @@ public class CreateNewProject extends AppCompatActivity {
             Chip newChip = (Chip) inflater_1.inflate(R.layout.chip_choice,null,false);
             System.out.println("category asdf" + text);
             newChip.setText(text);
-            mfilters.addView(newChip);}
+            categoryChipGroup.addView(newChip);}
     }
 
     @Override

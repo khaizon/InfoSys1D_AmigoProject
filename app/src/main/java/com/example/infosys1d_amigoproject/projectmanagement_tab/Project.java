@@ -10,7 +10,8 @@ public class Project {
     private List<String> skillsrequired = new ArrayList<String> (Arrays.asList("nil"));
     private List<String> usersinProject = new ArrayList<String> (Arrays.asList("nil"));
     private List<String> applicantsinProject = new ArrayList<String> (Arrays.asList("nil"));
-    private String category, createdby, projectID;
+    private List<String> category = new ArrayList<String> (Arrays.asList("nil"));
+    private String createdby, projectID;
 
     public Project() {
 
@@ -18,7 +19,7 @@ public class Project {
 
     public Project(String thumbnail, String projectitle, String projectdescription,
                    ArrayList<String> skillsrequired, ArrayList<String> usersinProject,
-                   String category, String createdby, String projectID) {
+                   ArrayList<String> category, String createdby, String projectID) {
         this.thumbnail = thumbnail;
         this.projectitle = projectitle;
         this.projectdescription = projectdescription;
@@ -51,7 +52,7 @@ public class Project {
         return usersinProject;
     }
 
-    public String getCategory() {return category;}
+    public List<String> getCategory() {return category;}
 
     public String getCreatedby() {
         return createdby;

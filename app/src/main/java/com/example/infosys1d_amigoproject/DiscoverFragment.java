@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.SearchView;
 
 import androidx.annotation.NonNull;
@@ -52,10 +53,10 @@ public class DiscoverFragment extends Fragment {
     DatabaseReference dbProjects;
     public List<Project> projectsList;
 
-    private Button learnButton;
-    private Button softwareButton;
-    private Button hardwareButton;
-    private Button startupButton;
+    private ImageButton learnButton;
+    private ImageButton softwareButton;
+    private ImageButton hardwareButton;
+    private ImageButton startupButton;
 
     public DiscoverFragment() {
         // Required empty public constructor
@@ -115,7 +116,8 @@ public class DiscoverFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), ExploreProjectListings.class);
-                intent.putExtra("category", learnButton.getText().toString());
+                intent.putExtra("category", "Learn");
+                startActivity(intent);
             }
         });
         hardwareButton = view.findViewById(R.id.projecticon2);
@@ -123,7 +125,8 @@ public class DiscoverFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), ExploreProjectListings.class);
-                intent.putExtra("category", hardwareButton.getText().toString());
+                intent.putExtra("category", "Hardware");
+                startActivity(intent);
             }
         });
         softwareButton = view.findViewById(R.id.projecticon3);
@@ -131,7 +134,8 @@ public class DiscoverFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), ExploreProjectListings.class);
-                intent.putExtra("category", softwareButton.getText().toString());
+                intent.putExtra("category", "Software");
+                startActivity(intent);
             }
         });
         startupButton = view.findViewById(R.id.projecticon4);
@@ -139,7 +143,8 @@ public class DiscoverFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), ExploreProjectListings.class);
-                intent.putExtra("category", softwareButton.getText().toString());
+                intent.putExtra("category", "Start-Up");
+                startActivity(intent);
             }
         });
 

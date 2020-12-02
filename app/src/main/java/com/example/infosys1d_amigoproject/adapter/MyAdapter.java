@@ -107,6 +107,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.myholder> implemen
                     System.out.println("omG!");
                     if (project.getProjectitle().toLowerCase().contains(filterPattern)
                             || project.getProjectdescription().toLowerCase().contains(filterPattern)
+                            || project.getCategory().contains(filterPattern)
                             || project.getCreatedby().toLowerCase().contains(filterPattern))
                     {
                         filteredProjects.add(project);

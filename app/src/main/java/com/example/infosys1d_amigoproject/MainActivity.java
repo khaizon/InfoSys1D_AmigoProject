@@ -79,10 +79,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 user = firebaseMethod.getUserData(snapshot);
-                if(!user.getUsersdisplay().isCompeletedsetup()){
-                    System.out.println(user.getUsersdisplay().isCompeletedsetup()+"92383312");
-                    startActivity(new Intent(MainActivity.this, ProfileSetupAboutMe.class));
-                }
+//                if(!user.getUsersdisplay().isCompeletedsetup()){
+//                    System.out.println(user.getUsersdisplay().isCompeletedsetup()+"92383312");
+//                    startActivity(new Intent(MainActivity.this, ProfileSetupAboutMe.class));
+//                }
             }
 
             @Override

@@ -54,7 +54,7 @@ public class EditPojects extends AppCompatActivity {
     StorageReference storageRef;
     TextInputLayout textInputLayout,textInputLayoutdescrip;
     String randomKey;
-    String category;
+    ArrayList<String> category;
     ArrayList<String> skills;
 
     DatabaseReference myref = FirebaseDatabase.getInstance().getReference();
@@ -186,7 +186,7 @@ public class EditPojects extends AppCompatActivity {
                             for(int i = 0; i<categoryChipGroup.getChildCount(); i++){
                                 Chip chip = (Chip)categoryChipGroup.getChildAt(i);
                                 if(chip.isChecked()){
-                                    category = chip.getText().toString();
+                                    category.add(chip.getText().toString());
                                 }
                             }
 
